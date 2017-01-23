@@ -16,7 +16,7 @@ namespace StudentScoring.Tests
 
             try
             {
-                students = studentCsvFileManager.GetStudents("..\\..\\Data\\students.txt");                          
+                students = studentCsvFileManager.ReadStudents("..\\..\\Data\\students.txt");                          
             }
             catch (Exception ex)
             {

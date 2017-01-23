@@ -42,7 +42,7 @@ namespace StudentScoring
         }
 
         // A method to return CSV data from input-file as a container of Student objects
-        public List<Student> GetStudents(string sourceFile)
+        public List<Student> ReadStudents(string sourceFile)
         {
             List<string> csvContent = ReadCsv(sourceFile);
             var students = new List<Student>();
@@ -83,7 +83,11 @@ namespace StudentScoring
             }
             catch (StudentCsvFileException exception)
             {
-                Debug.WriteLine($"Attempt to write the output CSV file generated message: {exception.Message}");                
+                Debug.WriteLine($"Attempt to write the output CSV file generated message: {exception.Message}");
+
+                /* Re-throw so dependant methods 
+                 * can also catch the exception */
+                throw;
             }
         }
     }

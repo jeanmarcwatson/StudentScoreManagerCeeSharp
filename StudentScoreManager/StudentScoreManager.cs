@@ -29,7 +29,7 @@ namespace StudentScoring
         public void CreateStudents(string sourceFile)
         {
             // Create our Student container based upon the contents of the input-file
-            students = studentCSVFileManager.GetStudents(sourceFile);
+            students = studentCSVFileManager.ReadStudents(sourceFile);
 
             // Sort the Student(s) according to our sort criteria
             Students.Sort(new StudentComparer());

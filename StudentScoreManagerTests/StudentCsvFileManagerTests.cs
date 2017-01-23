@@ -50,7 +50,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students.txt'");
             }
 
             Assert.AreEqual(fileContents[0], "TED,BUNDY,88");
@@ -61,18 +61,18 @@ namespace StudentScoring.Tests
         }
 
         [TestMethod()]
-        public void GetStudentsTest()
+        public void ReadStudentsTest()
         {
             StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
             List<Student> students = new List<Student>();
 
             try
             {
-                students = studentCsvFileManager.GetStudents("..\\..\\Data\\students.txt");               
+                students = studentCsvFileManager.ReadStudents("..\\..\\Data\\students.txt");               
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students.txt'");
             }
 
             Assert.AreEqual(students[0].FirstName, "TED");
@@ -94,7 +94,7 @@ namespace StudentScoring.Tests
         }
 
         [TestMethod()]
-        public void GetStudentsUsingMalformedInputFileTest()
+        public void ReadStudentsUsingMalformedInputFileTest()
         {
 
             /* The variant input file looks like this (blank line, missing score and insufficient field delimiters):
@@ -114,11 +114,11 @@ namespace StudentScoring.Tests
 
             try
             {
-                students = studentCsvFileManager.GetStudents("..\\..\\Data\\students-variant.txt");
+                students = studentCsvFileManager.ReadStudents("..\\..\\Data\\students-variant.txt");
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file 'students-variant.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students-variant.txt'");
             }
 
             Assert.AreEqual(students[0].FirstName, "TED");
