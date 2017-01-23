@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace StudentScoring.Tests
@@ -14,11 +15,11 @@ namespace StudentScoring.Tests
 
             try
             {
-                studentCsvFileManager.ReadCsv("c:\\DoesntExist.txt");
+                studentCsvFileManager.ReadCsv("c:\\NonexistantDirectory\\DoesntExist.txt");
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file 'c:\\DoesntExist.txt'");
+                Assert.AreEqual(ex.Message, "Could not find a part of the path 'c:\\NonexistantDirectory\\DoesntExist.txt'.");
             }
         }
         [TestMethod()]
@@ -50,7 +51,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students.txt'");
+                Debug.WriteLine(ex.Message);
             }
 
             Assert.AreEqual(fileContents[0], "TED,BUNDY,88");
@@ -72,7 +73,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students.txt'");
+                Debug.WriteLine(ex.Message);
             }
 
             Assert.AreEqual(students[0].FirstName, "TED");
@@ -118,8 +119,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file '..\\..\\Data\\students-variant.txt'");
-            }
+							Debug.WriteLine(ex.Message);
+						}
 
             Assert.AreEqual(students[0].FirstName, "TED");
             Assert.AreEqual(students[0].LastName, "BUNDY");

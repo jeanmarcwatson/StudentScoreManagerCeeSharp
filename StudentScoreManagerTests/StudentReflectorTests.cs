@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace StudentScoring.Tests
 {
@@ -20,8 +21,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
-            }
+							Debug.WriteLine(ex.Message);
+						}
 
             List<string> propertyOrderedData = studentReflector.GetOrderedPropertyValuesFromObjects(students);
 

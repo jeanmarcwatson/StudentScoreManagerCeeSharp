@@ -20,8 +20,13 @@ namespace StudentScoring
             studentReflector = new StudentReflector<Student>();
         }
 
-        // CSV Reader method which is abstracted away from the notion of Student types
-        public List<string> ReadCsv(string sourceFile)
+				private bool IsBlankLine(String line)
+				{
+					return line.Length == 0;
+				}
+
+				// CSV Reader method which is abstracted away from the notion of Student types
+				public List<string> ReadCsv(string sourceFile)
         {
             // Input-filename kept as intrinsic to the creation of the output-CSV-file
             inputFileNameAndPathWithoutExtension = sourceFile.Substring(0, sourceFile.LastIndexOf("."));
@@ -63,11 +68,6 @@ namespace StudentScoring
             }
 
             return students;
-        }
-
-        private bool IsBlankLine(String line)
-        {
-            return line.Length == 0;
         }
 
         // A method to serialise (loosely speaking) a container of Student objects as CSV to a text file
