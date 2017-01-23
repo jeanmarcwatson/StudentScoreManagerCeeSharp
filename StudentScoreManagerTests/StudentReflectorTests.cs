@@ -24,7 +24,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
             }
 
             List<string> propertyOrderedData = studentReflector.GetOrderedPropertyValuesFromObjects(students);

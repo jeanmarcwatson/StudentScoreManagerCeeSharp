@@ -14,7 +14,7 @@ namespace StudentScoring
         string lastName;
 
         // Set the order (to be used by reflection on output)
-        [CSVPropertyOrder(1)]
+        [CSVOutputPropertyOrder(1)]
         public string FirstName
         {
             get
@@ -24,7 +24,7 @@ namespace StudentScoring
         }
 
         // Set the order (to be used by reflection on output)
-        [CSVPropertyOrder(0)]
+        [CSVOutputPropertyOrder(0)]
         public string LastName
         {
             get
@@ -34,7 +34,7 @@ namespace StudentScoring
         }
 
         // Set the order (to be used by reflection on output)
-        [CSVPropertyOrder(2)]
+        [CSVOutputPropertyOrder(2)]
         public uint Score
         {
             get

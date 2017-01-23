@@ -15,7 +15,8 @@ namespace StudentScoring
         {
             try
             {
-                return typeof(Student).GetProperties().OrderBy(property => ((CSVPropertyOrderAttribute)property.GetCustomAttributes(typeof(CSVPropertyOrderAttribute), false).First()).CSVPropertyOrder);
+                return typeof(Student).GetProperties().OrderBy(property => 
+                    ((CSVOutputPropertyOrderAttribute)property.GetCustomAttributes(typeof(CSVOutputPropertyOrderAttribute), false).First()).CSVPropertyOrder);
             }
             catch (Exception exception)
             {

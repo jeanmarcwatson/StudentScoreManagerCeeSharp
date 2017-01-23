@@ -8,9 +8,9 @@ namespace StudentScoring
 {
     /* A specialised derivation of the base custom attribute class, used for property-ordering,
      * which is semantically aligned with CSV property ordering (for outputting CSV) */
-    public class CSVPropertyOrderAttribute : PropertyOrderAttribute
+    public class CSVOutputPropertyOrderAttribute : PropertyOrderAttribute
     {
-        public CSVPropertyOrderAttribute(int order) : base(order) { }
+        public CSVOutputPropertyOrderAttribute(int order) : base(order) { }
 
         public int CSVPropertyOrder
         {

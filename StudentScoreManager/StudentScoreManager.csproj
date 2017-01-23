@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSVPropertyOrderAttribute.cs" />
+    <Compile Include="CSVOutputPropertyOrderAttribute.cs" />
     <Compile Include="FileIO.cs" />
     <Compile Include="PropertyOrderAttribute.cs" />
     <Compile Include="ICsvable.cs" />

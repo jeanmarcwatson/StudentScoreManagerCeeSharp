@@ -37,7 +37,7 @@ namespace StudentScoring.Tests
             Student student = new Student("Jean-Marc,Watson,100");
 
             IEnumerable<PropertyInfo> propInfo = typeof(Student).GetProperties().OrderBy(property => 
-                                    ((CSVPropertyOrderAttribute)property.GetCustomAttributes(typeof(CSVPropertyOrderAttribute), false).First()).CSVPropertyOrder);
+                                    ((CSVOutputPropertyOrderAttribute)property.GetCustomAttributes(typeof(CSVOutputPropertyOrderAttribute), false).First()).CSVPropertyOrder);
 
             Assert.AreEqual(propInfo.ToList()[0].Name, "LastName");
             Assert.AreEqual(propInfo.ToList()[1].Name, "FirstName");

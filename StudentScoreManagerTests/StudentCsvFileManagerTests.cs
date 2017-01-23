@@ -22,9 +22,25 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'c:\\DoesntExist.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'c:\\DoesntExist.txt'");
             }
         }
+        [TestMethod()]
+        public void WriteCsvTestFileNoAssociatedInputFile()
+        {
+            StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
+            var students = new List<string>() { "JOHN, DOE, 99", "JAMES, SMITH, 25" };
+
+            try
+            {
+                studentCsvFileManager.WriteCsv(students);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(ex.Message, "No respective CSV input-file provided. Output incorporates use of input-file name");
+            }
+        }
+
 
         [TestMethod()]
         public void ReadCsvTestCheckContentsReturned()
@@ -38,7 +54,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
             }
 
             Assert.AreEqual(fileContents[0], "TED,BUNDY,88");
@@ -60,7 +76,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
             }
 
             Assert.AreEqual(students[0].FirstName, "TED");

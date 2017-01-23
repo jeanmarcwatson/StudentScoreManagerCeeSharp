@@ -20,7 +20,7 @@ namespace StudentScoring.Tests
             }
             catch (StudentCsvFileException ex)
             {
-                Assert.AreEqual(ex.Message, $"No respective CSV input-file provided. Output incorporates use of input-file name");
+                Assert.AreEqual(ex.Message, "No respective CSV input-file provided. Output incorporates use of input-file name");
             }
         }
 
@@ -36,7 +36,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
             }
 
             Assert.AreEqual(students[0].FirstName, "TED");
@@ -68,7 +68,7 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(ex.Message, $"Could not find file 'students.txt'");
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
             }
 
             List<Student> students = studentScoreManager.Students;
