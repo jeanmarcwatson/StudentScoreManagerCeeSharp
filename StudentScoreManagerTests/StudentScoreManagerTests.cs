@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using StudentScoring;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 
@@ -30,7 +31,7 @@ namespace StudentScoring.Tests
 
             try
             {
-                studentScoreManager.CreateStudents("..\\..\\Data\\students.txt");                
+                studentScoreManager.CreateStudents("..\\..\\Data\\students.txt");
             }
             catch (Exception ex)
             {
@@ -38,7 +39,7 @@ namespace StudentScoring.Tests
             }
 
             List<Student> students = studentScoreManager.Students;
-            
+
             /* NOTE: 'CreateStudents' will automatically sort the students (internally) */
             Assert.AreEqual(students[0].FirstName, "TED");
             Assert.AreEqual(students[0].LastName, "BUNDY");
@@ -46,7 +47,7 @@ namespace StudentScoring.Tests
 
             Assert.AreEqual(students[1].FirstName, "ALLAN");
             Assert.AreEqual(students[1].LastName, "SMITH");
-            Assert.AreEqual(students[1].Score, (System.UInt32)85);            
+            Assert.AreEqual(students[1].Score, (System.UInt32)85);
 
             Assert.AreEqual(students[2].FirstName, "FRANCIS");
             Assert.AreEqual(students[2].LastName, "SMITH");
@@ -65,7 +66,7 @@ namespace StudentScoring.Tests
 
             try
             {
-                studentScoreManager.CreateStudents("..\\..\\Data\\students.txt");                
+                studentScoreManager.CreateStudents("..\\..\\Data\\students.txt");
             }
             catch (Exception ex)
             {
@@ -99,5 +100,27 @@ namespace StudentScoring.Tests
             Assert.AreEqual(outputCSV[2], "SMITH,FRANCIS,85");
             Assert.AreEqual(outputCSV[3], "KING,MADISON,83");
         }
+
+        [TestMethod()]
+        public void StudentScoreManagerStudentsPropertyGetterTest()
+        {
+            StudentScoreManager studentScoreManager = new StudentScoreManager();
+            List<Student> students = studentScoreManager.Students;
+
+            Assert.AreEqual(students.Count, 0);
+
+            try
+            {
+                studentScoreManager.CreateStudents("..\\..\\Data\\students.txt");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(ex.Message, "Could not find file 'students.txt'");
+            }
+
+            students = studentScoreManager.Students;
+            Assert.AreEqual(students.Count, 4);
+        }
+
     }
 }
