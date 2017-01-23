@@ -1,10 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StudentScoring;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentScoring.Tests
 {
@@ -96,5 +92,61 @@ namespace StudentScoring.Tests
             Assert.AreEqual(students[3].Score, (System.UInt32)85);
 
         }
+
+        [TestMethod()]
+        public void GetStudentsUsingMalformedInputFileTest()
+        {
+
+            /* The variant input file looks like this (blank line, missing score and insufficient field delimiters):
+             * 
+             *  TED,BUNDY,88
+             *
+             *  ALLAN,SMITH,85
+             *  MADISON,KING,83
+             *  HARRY,NORMAN,
+             *  WENDY,JONES,100
+             *  JAMES, BUTLER
+             *  FRANCIS,SMITH,85
+             *  */
+
+            StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
+            List<Student> students = new List<Student>();
+
+            try
+            {
+                students = studentCsvFileManager.GetStudents("..\\..\\Data\\students-variant.txt");
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(ex.Message, "Could not find file 'students-variant.txt'");
+            }
+
+            Assert.AreEqual(students[0].FirstName, "TED");
+            Assert.AreEqual(students[0].LastName, "BUNDY");
+            Assert.AreEqual(students[0].Score, (System.UInt32)88);
+
+            Assert.AreEqual(students[1].FirstName, "ALLAN");
+            Assert.AreEqual(students[1].LastName, "SMITH");
+            Assert.AreEqual(students[1].Score, (System.UInt32)85);
+
+            Assert.AreEqual(students[2].FirstName, "MADISON");
+            Assert.AreEqual(students[2].LastName, "KING");
+            Assert.AreEqual(students[2].Score, (System.UInt32)83);
+
+            Assert.AreEqual(students[3].FirstName, "HARRY");
+            Assert.AreEqual(students[3].LastName, "NORMAN");
+            Assert.AreEqual(students[3].Score, (System.UInt32)0);
+
+            Assert.AreEqual(students[4].FirstName, "WENDY");
+            Assert.AreEqual(students[4].LastName, "JONES");
+            Assert.AreEqual(students[4].Score, (System.UInt32)100);
+
+            Assert.AreEqual(students[5].FirstName, "FRANCIS");
+            Assert.AreEqual(students[5].LastName, "SMITH");
+            Assert.AreEqual(students[5].Score, (System.UInt32)85);
+
+        }
+    
     }
 }
+ 

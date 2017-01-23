@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StudentScoring;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
