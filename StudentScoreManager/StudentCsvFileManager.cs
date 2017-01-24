@@ -20,13 +20,13 @@ namespace StudentScoring
             studentReflector = new StudentReflector<Student>();
         }
 
-				private bool IsBlankLine(String line)
-				{
-					return line.Length == 0;
-				}
+		private bool IsBlankLine(String line)
+		{
+			return line.Length == 0;
+		}
 
-				// CSV Reader method which is abstracted away from the notion of Student types
-				public List<string> ReadCsv(string sourceFile)
+		// CSV Reader method which is abstracted away from the notion of Student types
+		public List<string> ReadCsv(string sourceFile)
         {
             // Input-filename kept as intrinsic to the creation of the output-CSV-file
             inputFileNameAndPathWithoutExtension = sourceFile.Substring(0, sourceFile.LastIndexOf("."));

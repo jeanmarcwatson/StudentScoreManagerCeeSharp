@@ -21,8 +21,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-							Debug.WriteLine(ex.Message);
-						}
+				Debug.WriteLine(ex.Message);
+			}
 
             List<string> propertyOrderedData = studentReflector.GetOrderedPropertyValuesFromObjects(students);
 

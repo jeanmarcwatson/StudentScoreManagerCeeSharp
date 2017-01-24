@@ -119,8 +119,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-							Debug.WriteLine(ex.Message);
-						}
+				Debug.WriteLine(ex.Message);
+			}
 
             Assert.AreEqual(students[0].FirstName, "TED");
             Assert.AreEqual(students[0].LastName, "BUNDY");
@@ -147,7 +147,6 @@ namespace StudentScoring.Tests
             Assert.AreEqual(students[5].Score, (System.UInt32)85);
 
         }
-    
     }
 }
  

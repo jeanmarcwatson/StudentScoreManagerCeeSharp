@@ -25,10 +25,9 @@ namespace StudentScoring
             {
                 Debug.WriteLine($"The file could not be written: {exception.Message}");
 
-								// Allow exception to be caught be caller
-								throw;
+				// Allow exception to be caught be caller
+				throw;
             }
-
         }
 
         /* Concrete implementation for the reading of a file */
@@ -51,12 +50,11 @@ namespace StudentScoring
             {
                 Debug.WriteLine($"The file could not be read: {exception.Message}");
 
-								// Allow exception to be caught be caller
-								throw;
-						}
+				// Allow exception to be caught be caller
+				throw;
+			}
 
             return contents;
-
         }
 
     }

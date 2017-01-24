@@ -36,8 +36,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-							Debug.WriteLine(ex.Message);
-						}
+				Debug.WriteLine(ex.Message);
+			}
 
             List<Student> students = studentScoreManager.Students;
 
@@ -71,8 +71,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-							Debug.WriteLine(ex.Message);
-						}
+				Debug.WriteLine(ex.Message);
+			}
 
             List<Student> students = studentScoreManager.Students;
 
@@ -116,8 +116,8 @@ namespace StudentScoring.Tests
             }
             catch (Exception ex)
             {
-							Debug.WriteLine(ex.Message);
-						}
+				Debug.WriteLine(ex.Message);
+			}
 
             students = studentScoreManager.Students;
             Assert.AreEqual(students.Count, 4);
