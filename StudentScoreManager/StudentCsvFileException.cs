@@ -1,23 +1,23 @@
 ﻿namespace StudentScoring
 {
 
-    using System;
+	using System;
 
-    // A bespoke exception class for CSV file-exceptions 
-    public class StudentCsvFileException : Exception
-    {
-        public StudentCsvFileException()
-        {
-        }
+	// A bespoke exception class for CSV file-exceptions 
+	public class StudentCsvFileException : Exception
+	{
+		public StudentCsvFileException()
+		{
+		}
 
-        public StudentCsvFileException(string exceptionMessage)
-            : base(exceptionMessage)
-        {
-        }
+		public StudentCsvFileException(string exceptionMessage)
+			: base(exceptionMessage)
+		{
+		}
 
-        public StudentCsvFileException(string exceptionMessage, Exception inner)
-            : base(exceptionMessage, inner)
-        {
-        }
-    }    
+		public StudentCsvFileException(string exceptionMessage, Exception inner)
+			: base(exceptionMessage, inner)
+		{
+		}
+	}    
 }
