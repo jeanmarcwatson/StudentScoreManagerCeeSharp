@@ -9,7 +9,7 @@ namespace StudentScoring.Tests
 	public class StudentCsvFileManagerTests
 	{
 		[TestMethod()]
-		public void ReadCsvTestFileDoesNotExist()
+		public void ReadCsvFileDoesNotExist()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
 
@@ -23,7 +23,7 @@ namespace StudentScoring.Tests
 			}
 		}
 		[TestMethod()]
-		public void WriteCsvTestFileNoAssociatedInputFile()
+		public void WriteCsvFileNoAssociatedInputFile()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
 			var students = new List<string>() { "JOHN, DOE, 99", "JAMES, SMITH, 25" };
@@ -40,7 +40,7 @@ namespace StudentScoring.Tests
 
 
 		[TestMethod()]
-		public void ReadCsvTestCheckContentsReturned()
+		public void ReadCsvCheckContentsReturned()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
 			List<string> fileContents = new List<string>();
@@ -62,7 +62,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void ReadStudentsTest()
+		public void ReadStudents()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
 			List<Student> students = new List<Student>();
@@ -95,7 +95,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void ReadStudentsUsingMalformedInputFileTest()
+		public void ReadStudentsUsingMalformedInputFile()
 		{
 
 			/* The variant input file looks like this (blank line, missing score and insufficient field delimiters):

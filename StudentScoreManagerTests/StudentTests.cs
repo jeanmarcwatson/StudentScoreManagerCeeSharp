@@ -10,7 +10,7 @@ namespace StudentScoring.Tests
 	public class StudentTests
 	{
 		[TestMethod()]
-		public void StudentTestIndividualCTORParams()
+		public void StudentIndividualCTORParams()
 		{
 			Student student = new Student("Jean-Marc", "Watson", 100);
 
@@ -20,7 +20,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void StudentTestStringCTORParam()
+		public void StudentStringCTORParam()
 		{
 			Student student = new Student("Jean-Marc,Watson,100");
 

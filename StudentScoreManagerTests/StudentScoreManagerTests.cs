@@ -10,7 +10,7 @@ namespace StudentScoring.Tests
 	public class StudentScoreManagerTests
 	{
 		[TestMethod()]
-		public void PersistStudentsTest()
+		public void PersistStudents()
 		{
 			StudentScoreManager studentScoreManager = new StudentScoreManager();
 			var students = new List<Student> { new Student("John", "Doe", 5), new Student("Jane", "Doe", 15) };
@@ -26,7 +26,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void CreateStudentsTest()
+		public void CreateStudents()
 		{
 			StudentScoreManager studentScoreManager = new StudentScoreManager();
 
@@ -60,7 +60,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void PersistStudentsTestCheckSortedOutputCSV()
+		public void PersistStudentsCheckSortedOutputCSV()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();
 			StudentScoreManager studentScoreManager = new StudentScoreManager();
@@ -103,7 +103,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void StudentScoreManagerStudentsPropertyGetterTest()
+		public void StudentScoreManagerStudentsPropertyGetter()
 		{
 			StudentScoreManager studentScoreManager = new StudentScoreManager();
 			List<Student> students = studentScoreManager.Students;

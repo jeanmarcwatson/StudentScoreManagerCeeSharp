@@ -9,7 +9,7 @@ namespace StudentScoring.Tests
 	public class StudentReflectorTests
 	{
 		[TestMethod()]
-		public void GetOrderedPropertyValuesFromObjectsTest()
+		public void GetOrderedPropertyValuesFromObjects()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();            
 			StudentReflector<Student> studentReflector = new StudentReflector<Student>();

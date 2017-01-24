@@ -6,7 +6,7 @@ namespace StudentScoring.Tests
 	public class StudentComparerTests
 	{
 		[TestMethod()]
-		public void CompareTestStudentOneTrailsStudentTwo()
+		public void CompareStudentOneTrailsStudentTwo()
 		{
 			StudentComparer comparer = new StudentComparer();
 
@@ -19,7 +19,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void CompareTestStudentTwoTrailsStudentOne()
+		public void CompareStudentTwoTrailsStudentOne()
 		{
 			StudentComparer comparer = new StudentComparer();
 
@@ -32,7 +32,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void CompareTestStudentOneEqualsStudentTwo()
+		public void CompareStudentOneEqualsStudentTwo()
 		{
 			StudentComparer comparer = new StudentComparer();
 
@@ -45,7 +45,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void CompareTestStudentOneScoresHigherStudentTwo()
+		public void CompareStudentOneScoresHigherStudentTwo()
 		{
 			StudentComparer comparer = new StudentComparer();
 
@@ -58,7 +58,7 @@ namespace StudentScoring.Tests
 		}
 
 		[TestMethod()]
-		public void CompareTestStudentOneScoresLowerStudentTwo()
+		public void CompareStudentOneScoresLowerStudentTwo()
 		{
 			StudentComparer comparer = new StudentComparer();
 
