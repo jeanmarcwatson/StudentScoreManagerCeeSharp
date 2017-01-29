@@ -8,7 +8,7 @@ namespace StudentScoring
 	 * for the ordering of class properties */
 	public interface IReflectableSortedProperties<T>
 	{
-		IEnumerable<PropertyInfo> GetSortedProperties();
-		List<String> GetOrderedPropertyValuesFromObjects(List<T> objects);
+		IEnumerable<PropertyInfo> GetSortedProperties<U>();
+		List<String> GetOrderedPropertyValuesFromObjects<U>(List<T> objects);
 	}
  }

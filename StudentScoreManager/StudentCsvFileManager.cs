@@ -12,12 +12,12 @@ namespace StudentScoring
 
 		/* The reflection object used for ordering the Student properties
 		 * subsequently used for creating the sorted output CSV */
-		StudentReflector<Student> studentReflector;
+		ObjectReflector<Student> studentReflector;
 
 		public StudentCsvFileManager()
 		{
 			inputFileNameAndPathWithoutExtension = "";
-			studentReflector = new StudentReflector<Student>();
+			studentReflector = new ObjectReflector<Student>();
 		}
 
 		private bool IsBlankLine(String line)
@@ -79,7 +79,7 @@ namespace StudentScoring
 				/* NOTE: The serialisation depends on the Student object having the 
 				 * property-order custom-attribute and will not provide CSV text (lines) 
 				 * without them */
-				WriteCsv(studentReflector.GetOrderedPropertyValuesFromObjects(students));
+				WriteCsv(studentReflector.GetOrderedPropertyValuesFromObjects<CSVOutputPropertyOrderAttribute>(students));
 			}
 			catch (StudentCsvFileException exception)
 			{

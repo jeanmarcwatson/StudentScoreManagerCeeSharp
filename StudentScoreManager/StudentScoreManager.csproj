@@ -72,7 +72,7 @@
     <Compile Include="StudentComparer.cs" />
     <Compile Include="StudentCsvFileException.cs" />
     <Compile Include="StudentCsvFileManager.cs" />
-    <Compile Include="StudentReflector.cs" />
+    <Compile Include="ObjectReflector.cs" />
     <Compile Include="StudentScoreManager.cs" />
   </ItemGroup>
   <ItemGroup>

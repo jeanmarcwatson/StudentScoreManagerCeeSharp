@@ -12,7 +12,7 @@ namespace StudentScoring.Tests
 		public void GetOrderedPropertyValuesFromObjects()
 		{
 			StudentCsvFileManager studentCsvFileManager = new StudentCsvFileManager();            
-			StudentReflector<Student> studentReflector = new StudentReflector<Student>();
+			ObjectReflector<Student> StudentReflector = new ObjectReflector<Student>();
 			List<Student> students = new List<Student>();
 
 			try
@@ -24,7 +24,7 @@ namespace StudentScoring.Tests
 				Debug.WriteLine(ex.Message);
 			}
 
-			List<string> propertyOrderedData = studentReflector.GetOrderedPropertyValuesFromObjects(students);
+			List<string> propertyOrderedData = StudentReflector.GetOrderedPropertyValuesFromObjects<CSVOutputPropertyOrderAttribute>(students);
 
 			Assert.AreEqual(propertyOrderedData[0], "BUNDY,TED,88");
 			Assert.AreEqual(propertyOrderedData[1], "SMITH,ALLAN,85");
