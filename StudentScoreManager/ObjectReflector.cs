@@ -7,7 +7,7 @@ using System.Diagnostics;
 namespace StudentScoring
 {
 	/* A custom reflection-based class which allows propertyOrder attributes (and derived) on 
-     * any class to be used to sort the order in which the class properties are accessed/used */
+	 * any class to be used to sort the order in which the class properties are accessed/used */
 	public sealed class ObjectReflector<T> : IReflectableSortedProperties<T>
 	{
 		// Return a container of sorted object class properties (type U denotes attribute associated class)
