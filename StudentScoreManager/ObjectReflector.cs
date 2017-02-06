@@ -17,20 +17,25 @@ namespace StudentScoring
             {
                 /* In essence the following is happening:
                  * 
-                 * Step 1:  Retrieve the type of object T
-                 * Step 2:  Get the properties for object T (based on type ascertained in step 1)
-                 * Step 3:  Invoke LINQ ordering using a lambda to sort
-                 * Step 4:  For each property in object T (sorting)
+                 * Step 1:  Retrieve the properties for type T
+                 * Step 2:  Invoke LINQ ordering using a lambda to sort (for all properties of T)
+                 * Step 3:  For each property in object T (sorting)
                  *          (a) Get the first custom attribute for the property (as type U so we can discriminate)
                  *          (b) For the custom attribute returned get its type and then get the first property for that type (nesting)
                  *          (c) Then get its GetterMethod (for the nested property)
                  *          (d) Invoke the getter-method using the parent custom attribute instance (first one only) that belongs to type T 
-                 * Step 5:  Return the sorted property-list that was generated using step 4.
-                 *          */
-                return typeof(T).GetProperties().OrderBy(property =>
-                    ((U)property.GetCustomAttributes(typeof(U), false).First()).
-                        GetType().GetProperties().First().GetGetMethod().
-                            Invoke(((U)property.GetCustomAttributes(typeof(U), false).First()), null));
+                 *              which will return the integer value associated with the property.
+                 * Step 4:  Return the sorted property-list that was generated using lambda scope in step 3.
+                 *          */               
+                PropertyInfo[] properties = typeof(T).GetProperties();
+
+                return properties.OrderBy(property =>
+                {
+                    U customAttribute = ((U)property.GetCustomAttributes(typeof(U), false).First());
+                    PropertyInfo customAttributeProperty = customAttribute.GetType().GetProperties().First();
+                    MethodInfo customAttributePropertyGetMethod = customAttributeProperty.GetGetMethod();
+                    return customAttributePropertyGetMethod.Invoke((U)customAttribute, null);                                       
+                });
             }
             catch (Exception exception)
             {
